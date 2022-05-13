@@ -6,7 +6,7 @@
 #    By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 18:51:32 by ahmez-za          #+#    #+#              #
-#    Updated: 2022/05/13 18:53:55 by ahmez-za         ###   ########.fr        #
+#    Updated: 2022/05/13 19:34:08 by ahmez-za         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 LIBFT = ./libft/libft.a
 # FTPRINTF = ./ft_printf/libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
