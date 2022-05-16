@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/16 00:56:57 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/16 03:07:31 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void lstadd_front(a_list **head, a_list *new)
     }
 }
 
-void push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+void    push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 {
 
     a_list *new;
@@ -98,20 +98,24 @@ void push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
         return;
     if (stack == 'a')
     {
+        temp = *head_stack_b;
         new->data = (*head_stack_b)->data;
         new->next = NULL;
         *head_stack_b = (*head_stack_b)->next;
         free(temp);
         lstadd_front(head_stack_a, new);
+        printf("sa\n");
     }
-    else
+    else if (stack == 'b')
     {
+        temp = *head_stack_a;
         new->data = (*head_stack_a)->data;
         new->next = NULL;
-        temp = *head_stack_a;
         *head_stack_a = (*head_stack_a)->next;
         free(temp);
         lstadd_front(head_stack_b, new);
+        printf("sb\n");
+
     }
 }
 
@@ -270,6 +274,89 @@ void sort_three(a_list **head)
     }
 }
 
+int    get_list_size(a_list *head)
+{
+    int size;
+
+    size = 0;
+    while (head)
+    {
+        size++;
+        head = head->next;
+    }
+    return (size);
+}
+
+int get_list_min(a_list *head)
+{
+    int min;
+    
+    min = head->data;
+    while (head)
+    {
+        if (head->data < min)
+            min = head->data;
+        head = head->next;
+    }
+    return (min);
+    
+}
+int get_min_postion(a_list *head, int min)
+{
+    int postion;
+
+    postion = 1;
+    while (head)
+    {
+        if (head->data == min)
+            return (postion);    
+        head = head->next;
+        postion++;
+    }
+    return (-1);
+}
+
+
+void    sort_five_numbers(a_list **head_a, a_list **head_b)
+{
+    int i;
+    int size;
+    int min;
+    int position;
+
+    i = 0;
+       
+    while (i < 2)
+    {
+        size = get_list_size(*head_a);
+        min = get_list_min(*head_a);
+        position = get_min_postion(*head_a, min);
+        if ((*head_a)->data == min)
+        {
+            push_stack(head_a, head_b, 'b');
+            i++;    
+            continue;
+        }  
+        if (position > (size / 2))
+        {
+            min = size - position + 1;
+            while (min != 0)
+            {
+                reverse_stack(head_a, NULL, 'a');
+                min--;
+            }   
+        }
+        else 
+            rotat_stack(head_a, NULL, 'a');
+        
+        push_stack(head_a, head_b, 'b');
+        i++;
+    }
+    sort_three(head_a);
+    push_stack(head_a, head_b, 'a');
+    push_stack(head_a, head_b, 'a');
+    
+}
 
 int main(int ac, char **argv)
 {
@@ -287,14 +374,14 @@ int main(int ac, char **argv)
 
     check_deplicate(head_stack_a);
     a_list *temp, *da;
-    // temp = head_stack_a;
-    // while (temp)
-    // {
-    //     printf("before A = %d\n", temp->data);
-    //     temp = temp->next;
-    // }
+    temp = head_stack_a;
+    while (temp)
+    {
+        printf("before A = %d\n", temp->data);
+        temp = temp->next;
+    }
 
-    // printf("\n\n");
+    printf("\n\n");
 
     // swap_stack(&head_stack_a);
     // push_stack(&head_stack_a, &head_stack_b, 'b');
@@ -306,8 +393,9 @@ int main(int ac, char **argv)
     // check_stack_sort(head_stack_a);
     // reverse_stack(&head_stack_a, &head_stack_b, 'a');
     // 8 3 12
-    sort_three(&head_stack_a);
-
+    // sort_three(&head_stack_a);
+    // printf("list size == %d\n",get_min_postion(head_stack_a,get_list_min(head_stack_a)));
+    sort_five_numbers (&head_stack_a, &head_stack_b);
     temp = head_stack_a;
     while (temp)
     {
