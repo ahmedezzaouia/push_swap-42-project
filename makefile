@@ -6,11 +6,11 @@
 #    By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 18:51:32 by ahmez-za          #+#    #+#              #
-#    Updated: 2022/05/13 23:56:18 by ahmez-za         ###   ########.fr        #
+#    Updated: 2022/05/16 12:32:32 by ahmez-za         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c
+SRCS = push_swap.c push_swap_helper.c
 NAME = push_swap
 LIBFT = ./libft/libft.a
 # FTPRINTF = ./ft_printf/libftprintf.a

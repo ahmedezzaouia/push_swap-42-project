@@ -10,8 +10,11 @@
 
 typedef struct Node {
     int data;
+    int index;
     struct Node* next;
 } a_list;
 
+
+void ft_sort_int_tab(int *tab, int size);
 
 #endif
