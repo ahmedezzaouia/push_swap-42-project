@@ -6,11 +6,24 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/16 16:31:48 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/17 02:51:10 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int get_list_size(a_list *head)
+{
+    int size;
+
+    size = 0;
+    while (head)
+    {
+        size++;
+        head = head->next;
+    }
+    return (size);
+}
 
 void check_deplicate(a_list *head)
 {
@@ -87,7 +100,7 @@ void lstadd_front(a_list **head, a_list *new)
     }
 }
 
-void    push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+void push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 {
 
     a_list *new;
@@ -105,7 +118,7 @@ void    push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
         *head_stack_b = (*head_stack_b)->next;
         free(temp);
         lstadd_front(head_stack_a, new);
-        printf("sa\n");
+        printf("pa\n");
     }
     else if (stack == 'b')
     {
@@ -116,8 +129,7 @@ void    push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
         *head_stack_a = (*head_stack_a)->next;
         free(temp);
         lstadd_front(head_stack_b, new);
-        printf("sb\n");
-
+        printf("pb\n");
     }
 }
 
@@ -135,17 +147,17 @@ void swap_stack(a_list **head, char stack)
         printf("sa\n");
     else if (stack == 'b')
         printf("sb\n");
-    else if (stack == 0)
-        printf("ss\n");
+    // else if (stack == 0)
+    //     printf("ss\n");
 }
 
 void rotat_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 {
     a_list *temp;
-    
+
     if (stack == 'a' || stack == 0)
     {
-        if (!*head_stack_a)
+        if (get_list_size(*head_stack_a) <= 1)
             return;
         temp = *head_stack_a;
         while (temp->next)
@@ -158,7 +170,7 @@ void rotat_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
     }
     if (stack == 'b' || stack == 0)
     {
-        if (!*head_stack_b)
+        if (get_list_size(*head_stack_b) <= 1)
             return;
         temp = *head_stack_b;
         while (temp->next)
@@ -169,8 +181,8 @@ void rotat_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
         if (stack != 0)
             printf("rb\n");
     }
-    if (stack == 0)
-        printf("rr\n");
+    // if (stack == 0)
+    //     printf("rr\n");
 }
 
 int check_stack_sort(a_list *head_stack_a)
@@ -179,12 +191,12 @@ int check_stack_sort(a_list *head_stack_a)
     {
         if (head_stack_a->data > (head_stack_a->next)->data)
         {
-            printf("stack is not sorted\n");
+            // printf("stack is not sorted\n");
             return (0);
         }
         head_stack_a = head_stack_a->next;
     }
-    printf("stack sorted\n");
+    // printf("stack sorted\n");
     return (1);
 }
 
@@ -207,47 +219,48 @@ void reverse_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 {
     a_list *last;
     a_list *temp;
+    a_list *temp2;
 
     last = NULL;
     temp = NULL;
     if (stack == 'a' || stack == 0)
     {
         temp = *head_stack_a;
+
         while (temp->next)
-            temp = temp->next;
-        last = temp;
-        while (*head_stack_a != last)
         {
-            lstadd_back(head_stack_a, *head_stack_a);
+            temp2 = temp;
             temp = temp->next;
         }
+        lstadd_front(head_stack_a, temp);
+        temp2->next = NULL;
     }
     else if (stack == 'b' || stack == 0)
     {
         temp = *head_stack_b;
+
         while (temp->next)
-            temp = temp->next;
-        last = temp;
-        while (*head_stack_a != last)
         {
-            lstadd_back(head_stack_b, *head_stack_b);
+            temp2 = temp;
             temp = temp->next;
         }
+        lstadd_front(head_stack_b, temp);
+        temp2->next = NULL;
     }
 
     if (stack == 'a')
         printf("rra\n");
     else if (stack == 'b')
         printf("rrb\n");
-    else if (stack == 0)
-        printf("rrr\n");
+    // else if (stack == 0)
+    //     printf("rrr\n");
 }
 
 void sort_three(a_list **head)
 {
     a_list *second;
     a_list *third;
-    
+
     second = (*head)->next;
     third = second->next;
     if ((*head)->data > second->data && (*head)->data > third->data)
@@ -276,23 +289,10 @@ void sort_three(a_list **head)
     }
 }
 
-int    get_list_size(a_list *head)
-{
-    int size;
-
-    size = 0;
-    while (head)
-    {
-        size++;
-        head = head->next;
-    }
-    return (size);
-}
-
 int get_list_min(a_list *head)
 {
     int min;
-    
+
     min = head->data;
     while (head)
     {
@@ -301,14 +301,15 @@ int get_list_min(a_list *head)
         head = head->next;
     }
     return (min);
-    
 }
 
 int get_list_max_index(a_list *head)
 {
     int max;
-    
+
     max = head->index;
+    if (get_list_size(head) == 1)
+        return (max);
     while (head)
     {
         if (head->index > max)
@@ -325,44 +326,43 @@ int get_min_or_max_postion(a_list *head, int min)
     postion = 1;
     while (head)
     {
-        if (head->data == min)
-            return (postion);    
+        if (head->index == min)
+            return (postion);
+        postion += 1;
         head = head->next;
-        postion++;
     }
     return (-1);
 }
-void    print_list(a_list *head, char stack)
+void print_list(a_list *head, char stack)
 {
-        
+
     while (head)
     {
-        printf("stack %c = %d index == %d\n",stack, head->data,head->index);
+        printf("stack %c = %d index == %d\n", stack, head->data, head->index);
         head = head->next;
     }
 }
 
-void    sort_five_numbers(a_list **head_a, a_list **head_b)
+void sort_five_numbers(a_list **head_a, a_list **head_b)
 {
     int i;
     int size;
     int min;
     int position;
-    
 
     i = 0;
-       
+
     while (i < 2)
     {
         size = get_list_size(*head_a);
         min = get_list_min(*head_a);
-        position = get_min_or_max_postion(*head_a, min);
+        // position = get_min_or_max_postion(*head_a, min);
         if ((*head_a)->data == min)
         {
             push_stack(head_a, head_b, 'b');
-            i++;    
+            i++;
             continue;
-        }  
+        }
         if (position > (size / 2))
         {
             min = size - position + 1;
@@ -370,57 +370,58 @@ void    sort_five_numbers(a_list **head_a, a_list **head_b)
             {
                 reverse_stack(head_a, NULL, 'a');
                 min--;
-            }   
+            }
         }
-        else 
+        else
             rotat_stack(head_a, NULL, 'a');
-        
+
         push_stack(head_a, head_b, 'b');
         i++;
     }
     sort_three(head_a);
     push_stack(head_a, head_b, 'a');
     push_stack(head_a, head_b, 'a');
-    
 }
 
-void    re_push_to_stack_a(a_list **head_a, a_list **head_b)
+void re_push_to_stack_a(a_list **head_a, a_list **head_b)
 {
-    int max;
-    int pos;
-    int med;
+    int max; // max = 0
+    int pos; // pos = 0
+    int med; // med = 0
 
     while (*head_b)
     {
+        // printf("hey\n");
         max = get_list_max_index(*head_b);
-        pos = get_min_or_max_postion(*head_b, max) - 1;
-        med = get_list_size(*head_b) - 1 / 2;
+        // printf("max = [%d]\n", max);
+        pos = get_min_or_max_postion(*head_b, max);
+        //  printf("pos = [%d]\n", pos);
+        med = (get_list_size(*head_b) - 1) / 2;
+        //  printf("med = [%d]\n", med);ld
+
+        
+        //   printf("hey\n");
         if (pos <= med)
         {
             while ((*head_b)->index != max)
             {
-                // printf("MAX = %d || POS == %d || med == %d\n",max, pos, med);
-                // print_list(*head_b, 'A');
                 rotat_stack(head_a, head_b, 'b');
             }
-            
         }
+
         else if (pos > med)
         {
+
             while ((*head_b)->index != max)
             {
+                
                 reverse_stack(head_a, head_b, 'b');
             }
         }
+
         push_stack(head_a, head_b, 'a');
-        
     }
-    
-    
 }
-
-
-
 
 int main(int ac, char **argv)
 {
@@ -431,6 +432,7 @@ int main(int ac, char **argv)
     int range_min;
     int range_max;
     int chunk;
+    int size;
 
     i = 0;
     head_stack_a = NULL;
@@ -444,23 +446,28 @@ int main(int ac, char **argv)
 
     a_list *temp, *da;
     temp = head_stack_a;
-   
-    print_list(head_stack_a, 'A');
-    printf("\n\n");
 
-    if (ac == 4)
-        sort_three(&head_stack_a);
-    else if (ac == 6)
-        sort_five_numbers (&head_stack_a, &head_stack_b);
-    else if (ac > 6)
+    // print_list(head_stack_a, 'A');
+    // printf("\n\n");
+
+    // if (ac == 4)
+    //   sort_three(&head_stack_a);
+    // else if (ac == 6)
+    //     sort_five_numbers (&head_stack_a, &head_stack_b);
+    if (ac > 4)
     {
-        // sort array 
+        // sort array
+
+        i = 0;
+
         i = 0;
         ft_sort_int_tab(array, get_list_size(head_stack_a));
-        while (i < get_list_size(head_stack_a))
-            printf("%d ",array[i++]);
-        
-        printf("\n");
+        // while (i < get_list_size(head_stack_a))
+        //     printf("%d ",array[i++]);
+        // print_list(head_stack_a, 'A');
+
+        // printf("\n");
+
         // index the linked list
         i = 0;
         while (i < get_list_size(head_stack_a))
@@ -471,63 +478,67 @@ int main(int ac, char **argv)
                 if (temp->data == array[i])
                 {
                     temp->index = i;
-                    break ;
+                    break;
                 }
                 temp = temp->next;
             }
             i++;
         }
-        // push chunks to stack B
+        // i = 0;
+        // while (i < get_list_size(head_stack_a))
+        //     printf("[%d]",array[i++]);
+        // printf("\n\n");
+        // print_list(head_stack_a, 'A');
+
+
+        /* ****** push chunks to stack B  *****/
         if (get_list_size(head_stack_a) <= 10)
             chunk = 2;
         if (get_list_size(head_stack_a) > 10)
-            chunk = 15;
+            chunk = 5;
         else if (get_list_size(head_stack_a) > 150)
-            chunk = 30;
-        
-        range_max = (get_list_size(head_stack_a) - 1) / 2 + chunk;
-        range_min = (get_list_size(head_stack_a) - 1) / 2 - chunk;
- 
+            chunk = 40;
+        range_max = (get_list_size(head_stack_a) - 1) / 2 + chunk; // max = 5
+        range_min = (get_list_size(head_stack_a)  - 1) / 2 - chunk; // min = 1
+                                                                   // mid = size / 2 = 3
+         //printf("\n\n");
+        // print_list(head_stack_a, 'A');
+         size = get_list_size(head_stack_a);
+        // printf("size == [%d]\n",size);
         while (head_stack_a)
         {
             temp = head_stack_a;
-            while (temp)
+            // between : range_min <= el <= med  small
+            if (temp->index >= range_min && (temp->index < (size - 1) / 2))
             {
-                // between : range_min <= el <= med 
-                if (temp->index >= range_min && (temp->index <= (get_list_size(head_stack_a) - 1) / 2))
-                {
-                   push_stack(&head_stack_a, &head_stack_b, 'b');
-                   rotat_stack(&head_stack_a, &head_stack_b,'b');
-                   
-                }
-                // between : range_max >= el > med 
-                else if (temp->index >= (get_list_size(head_stack_a) - 1) / 2 && temp->index <= range_max)
-                {
-                   push_stack(&head_stack_a, &head_stack_b, 'b');
-                }
-                else
-                  rotat_stack(&head_stack_a, &head_stack_b,'a');
-
-                
-                temp = temp->next;
-            
+                push_stack(&head_stack_a, &head_stack_b, 'b');
+                rotat_stack(&head_stack_a, &head_stack_b, 'b');
             }
-            range_max += 2;
-            range_min -= 2;
-            if (range_min < -1) range_min = -1;
+            // between : range_max >= el > med  big
+            else if (temp->index >= (size- 1) / 2 && temp->index < range_max)
+            {
+                push_stack(&head_stack_a, &head_stack_b, 'b');
+            }
+            else
+            {
+                rotat_stack(&head_stack_a, &head_stack_b, 'a');
+                range_max += 2;
+                range_min -= 2;
+                if (range_min < -1)
+                    range_min = -1;
+            }
             // printf("range max == %d\n",range_max);
             // printf("range min == %d\n",range_min);
             // printf("\nloop\n\n");
         }
+        //  print_list(head_stack_b, 'B');
+
         // Repush to stack A
 
         re_push_to_stack_a(&head_stack_a, &head_stack_b);
-
     }
-    print_list(head_stack_b, 'B');
-    printf("\n\n");
-    print_list(head_stack_a, 'A');
-    // printf("\n\n");
     // print_list(head_stack_b, 'B');
-
+   
+    // printf("\n\n");
+    // print_list(head_stack_a, 'A');
 }
