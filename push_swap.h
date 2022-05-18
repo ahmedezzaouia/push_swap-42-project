@@ -6,6 +6,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 
 
 typedef struct Node {
@@ -15,6 +16,8 @@ typedef struct Node {
 } a_list;
 
 
-void ft_sort_int_tab(int *tab, int size);
+void    ft_sort_int_tab(int *tab, int size);
+void	print_instructions(char *instruct);
+
 
 #endif
