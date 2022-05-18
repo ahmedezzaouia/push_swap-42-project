@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/18 00:32:46 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/18 14:31:22 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -334,18 +334,24 @@ int get_list_max_index(a_list *head)
     return (max);
 }
 
-int get_min_or_max_postion(a_list *head, int min)
+int get_min_or_max_postion(a_list *head, int index)
 {
     int postion;
+
 
     postion = 1;
     while (head)
     {
-        if (head->index == min)
+        if (head->index == index)
+        {
+
             return (postion);
+            
+        }
         postion += 1;
         head = head->next;
     }
+  
     return (-1);
 }
 void print_list(a_list *head, char stack)
@@ -400,22 +406,39 @@ void sort_five_numbers(a_list **head_a, a_list **head_b)
 
 void re_push_to_stack_a(a_list **head_a, a_list **head_b)
 {
-    int max; // max = 0
-    int pos; // pos = 0
-    int med; // med = 0
+    int max; // max = 5
+    int pos; // pos = 3
+    int pos2; // pos = 0
+    int med; // med = 1
+    static int down = 0;
 
     while (*head_b)
     {
 
         max = get_list_max_index(*head_b);
         pos = get_min_or_max_postion(*head_b, max);
+        pos2 = get_min_or_max_postion(*head_b,max - 1);
         med = (get_list_size(*head_b) - 1) / 2;
+
+        // printf("max == [%d]\n",max);
+        // printf("pos == [%d]\n",pos);
+        // printf("pos2 == [%d]\n",pos2);
+        // printf("down == [%d]\n",down);
+
+        if (pos2 < pos && pos2 != -1)
+        {
+            max--;
+            pos = pos2;
+        } 
+        // printf("********taken pos == [%d]\n",pos);
+        // printf("********take max == [%d]\n",max);
+        // printf("\n\n");
+
 
         if (pos == 2)
         {
             swap_stack(head_b, 'b');
         } 
-
         else if (pos <= med)
         {
             while ((*head_b)->index != max)
@@ -433,7 +456,22 @@ void re_push_to_stack_a(a_list **head_a, a_list **head_b)
             }
         }
 
-        push_stack(head_a, head_b, 'a');
+        if (down == 1)
+        {
+            push_stack(head_a, head_b, 'a');
+            swap_stack(head_a, 'a');
+            down = 0;
+        }
+        else if(down == 0 && pos2 == pos)
+        {
+            push_stack(head_a, head_b, 'a');
+            down = 1;
+        }
+        else
+        {
+            push_stack(head_a, head_b, 'a');
+        }
+        
     }
 
 }
@@ -499,11 +537,7 @@ int main(int ac, char **argv)
             }
             i++;
         }
-        // i = 0;
-        // while (i < get_list_size(head_stack_a))
-        //     printf("[%d]",array[i++]);
-        // printf("\n\n");
-        // print_list(head_stack_a, 'A');
+       
 
         /******* push chunks to stack B  *****/
         if (get_list_size(head_stack_a) <= 10)
@@ -511,10 +545,9 @@ int main(int ac, char **argv)
         if (get_list_size(head_stack_a) > 10)
             chunk = 12;
         else if (get_list_size(head_stack_a) > 150)
-            chunk = 14;
+            chunk = 3;
         range_max = (get_list_size(head_stack_a) - 1) / 2 + chunk; // max = 5
-        range_min = (get_list_size(head_stack_a) - 1) / 2 - chunk; // min = 1
-                                                                   // mid = size / 2 = 3
+        range_min = (get_list_size(head_stack_a) - 1) / 2 - chunk; // min = 1                                                    
         size = get_list_size(head_stack_a);
         int to_be_pushed;
         while (head_stack_a)
@@ -557,6 +590,7 @@ int main(int ac, char **argv)
         //  print_list(head_stack_b, 'B');
 
         /******* Repush to stack A  *****/
+        // print_list(head_stack_b, 'B');
         re_push_to_stack_a(&head_stack_a, &head_stack_b);
         print_instructions(NULL);
 
