@@ -18,6 +18,7 @@ typedef struct Node {
 
 void    ft_sort_int_tab(int *tab, int size);
 void	print_instructions(char *instruct);
+int     position(a_list *a, int size, int min, int max);
 
 
 #endif

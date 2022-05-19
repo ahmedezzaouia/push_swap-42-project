@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/18 16:56:38 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:00:30 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,26 @@ void	print_instructions(char *instruct)
 	e_intruct = instruct;
 	// printf("last e_intruct = [%s]\n",e_intruct);
 
+}
+
+
+int position(a_list *a, int size, int min, int max)
+{
+    int i;
+    int pos;
+
+    i = 1;
+    pos = -1;
+    while (a)
+    {
+        if (a->index >= min && a->index <= max)
+        {
+            pos = i;
+            if (pos <= (size / 2))
+                return (pos);
+        }
+        i++;
+		a = a->next;
+    }
+    return (pos);
 }

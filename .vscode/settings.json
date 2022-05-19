@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.liquid": "html",
+        "push_swap.h": "c"
+    }
+}
