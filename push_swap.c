@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/19 16:52:23 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/19 17:26:40 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -563,6 +563,7 @@ int main(int ac, char **argv)
                 //         to_be_pushed--;
                 //     s--;
                 // }
+                
                 // else
                 // {
                 //     rotat_stack(&head_stack_a, &head_stack_b, 'a');
