@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:54:51 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 20:13:51 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:54:31 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void add_node(int data, a_list **head)
         temp->next = new;
     }
 }
+
 
 int *parsing_Input(char **argv, int ac, a_list **head_a)
 {

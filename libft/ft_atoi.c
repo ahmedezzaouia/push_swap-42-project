@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:06:18 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 20:17:02 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:52:26 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
-	if (str[i])
+	// printf("max int = [%ld]\n", nb);
+	if (nb > 2147483647 || nb < -2147483648)
+	{
 		printf("Error\n");
+		exit(1);
+	}
 	return (nb * sign);
 }

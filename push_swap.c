@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 20:01:09 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:54:45 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -542,7 +542,6 @@ int main(int ac, char **argv)
 
     }
     // print_list(head_stack_b, 'B');
-
     // printf("\n\n");
     // print_list(head_stack_a, 'A');
 }
