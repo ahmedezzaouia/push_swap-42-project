@@ -15,10 +15,17 @@ typedef struct Node {
     struct Node* next;
 } a_list;
 
+int	my_abs(int n);
+
 
 void    ft_sort_int_tab(int *tab, int size);
 void	print_instructions(char *instruct);
 int     position(a_list *a, int size, int min, int max);
+void    check_deplicate(a_list *head);
+void    add_node(int data, a_list **head);
+int check_stack_sort(a_list *head_stack_a);
+int *parsing_Input(char **argv, int ac, a_list **head_a);
+
 
 
 #endif
