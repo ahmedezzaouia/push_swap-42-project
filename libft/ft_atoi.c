@@ -6,13 +6,13 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:06:18 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 20:38:46 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 20:44:52 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	print_error()
+void	print_error(void)
 {
 	printf("Error\n");
 	exit(1);
