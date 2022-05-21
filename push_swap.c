@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 20:54:45 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 03:33:44 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -395,150 +395,39 @@ void	push_from_B_to_A(a_list **a, a_list **b, int size)
 
 int main(int ac, char **argv)
 {
-    int i;
     int *array;
     a_list *head_stack_a;
     a_list *head_stack_b;
-    int range_min;
-    int range_max;
-    int chunk;
+    t_vrls my_variables;
     int size;
 
-    i = 0;
     head_stack_a = NULL;
     head_stack_b = NULL;
 
     array = parsing_Input(argv, ac, &head_stack_a);
-    a_list *temp, *da;
-    temp = head_stack_a;
-
-
     if (ac == 4)
         sort_three(&head_stack_a);
     else if (ac == 6)
         sort_five_numbers (&head_stack_a, &head_stack_b);
     else if (ac > 6)
     {
-        // sort array
-        i = 0;
-        ft_sort_int_tab(array, get_list_size(head_stack_a));
-
-        // index the linked list
-        i = 0;
-        while (i < get_list_size(head_stack_a))
-        {
-            temp = head_stack_a;
-            while (temp)
-            {
-                if (temp->data == array[i])
-                {
-                    temp->index = i;
-                    break;
-                }
-                temp = temp->next;
-            }
-            i++;
-        }
-       
-        /******* push chunks to stack B  *****/
-        if (get_list_size(head_stack_a) <= 10)
-            chunk = 2;
-        else if (get_list_size(head_stack_a) < 150)
-            chunk = 12;
-        else
-            chunk = 30;
-        size = get_list_size(head_stack_a);
-        range_max = (size - 1) / 2 + chunk; // max = 5
-        range_min = (size - 1) / 2 - chunk; // min  
-
-        int to_be_pushed; 
-        int s = size;
-        while (/*head_stack_a*/ s > 3)
-        {
-
-            to_be_pushed = 2 * chunk;
-            if (range_max == (size - 4))
-                to_be_pushed = s;
-            while  (to_be_pushed && /*head_stack_a*/ s > 3)
-            {
-                temp = head_stack_a;
-                // between : range_min <= el < med  : small
-                if (temp->index >= range_min && (temp->index < (size - 1) / 2))
-                {
-                    push_stack(&head_stack_a, &head_stack_b, 'b');
-                    rotat_stack(&head_stack_a, &head_stack_b, 'b');
-                    if (temp->index != size / 2)
-                        to_be_pushed--;
-                    s--;
-                }
-                // between : range_max >= el => med  big
-                else if (temp->index >= (size - 1) / 2 && temp->index <= range_max)
-                {
-                    push_stack(&head_stack_a, &head_stack_b, 'b');
-                    if (temp->index != size / 2)
-                        to_be_pushed--;
-                    s--;
-                }
-                
-                else
-                    rotat_stack(&head_stack_a, &head_stack_b, 'a');
-
-                // printf("%d\n", s);
-                // int p = position(head_stack_a, s, range_min, range_max);
-                // if (p == 0)
-                //     break;
-                // if (p >= 0)
-                // {
-
-                //     //printf("----->%d  -  %d\n", s, p);
-                //     while (p-- > 1)
-                //         rotat_stack(&head_stack_a, &head_stack_b, 'a');   
-                // }
-                // else
-                // {
-                //     // printf("----->%d  -  %d\n", s, p);
-                //     while (p++)
-                //         reverse_stack(&head_stack_a, &head_stack_b, 'a');   
-                // }
-                // push_stack(&head_stack_a, &head_stack_b, 'b');
-                // if (head_stack_b->index < (size / 2))
-                //     rotat_stack(&head_stack_a, &head_stack_b, 'b');
-                // s--;
-            }
-
-                    range_max += chunk;
-                    range_min -= chunk;
-
-                    if (range_max > (size - 4))
-                    {
-                        range_max = size - 4;
-                        range_min = 0;
-                    }
-                    // if (range_min < -1)
-                    //     range_min = -1;
-            
-        }
-        // printf("%d\n", range_min);
-        // printf("%d\n", range_max);
-        sort_three (&head_stack_a);
-        // print_list(head_stack_a, 'A');
-
-        //print_instructions(NULL);
-
+        push_from_a_to_b(&head_stack_a, &head_stack_b, array, &my_variables);
         /******* Repush to stack A  *****/
-        // print_list(head_stack_b, 'B');
-        // re_push_to_stack_a(&head_stack_a, &head_stack_b);
-        // if ((head_stack_a) && (head_stack_a)->next && ((head_stack_a)->index > (head_stack_a)->next->index))
-        //     swap_stack(&head_stack_a, 'a');
-    
         int sz = get_list_size(head_stack_b);
         while (head_stack_b)
             push_from_B_to_A(&head_stack_a, &head_stack_b, sz);
 
         while (!check_stack_sort(head_stack_a))
             reverse_stack(&head_stack_a, &head_stack_b, 'a');
-
         print_instructions(NULL);
+
+    
+
+        // printf("size == [%d]",my_varables.size);
+        // printf("med == [%d]",my_varables.med);
+        // printf("s == [%d]",my_varables.s);
+        // printf("range_max == [%d]",my_varables.range_max);
+        // printf("range_min == [%d]",my_varables.range_min);
 
     }
     // print_list(head_stack_b, 'B');

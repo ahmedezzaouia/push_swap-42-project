@@ -15,7 +15,15 @@ typedef struct Node {
     struct Node* next;
 } a_list;
 
-int	my_abs(int n);
+typedef struct s_help {
+    int med;
+    int range_min;
+    int range_max;
+    int s;
+    int size;
+    int chunk;
+
+} t_vrls;
 
 
 void    ft_sort_int_tab(int *tab, int size);
@@ -25,6 +33,20 @@ void    check_deplicate(a_list *head);
 void    add_node(int data, a_list **head);
 int check_stack_sort(a_list *head_stack_a);
 int *parsing_Input(char **argv, int ac, a_list **head_a);
+void push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack);
+void rotat_stack(a_list **head_stack_a, a_list **head_stack_b, char stack);
+void reverse_stack(a_list **head_stack_a, a_list **head_stack_b, char stack);
+
+/******************* Push from A to B ********************************/
+int calculate_chunk(a_list *head_stack_a);
+int get_list_size(a_list *head);
+void range_small(a_list **head_a, a_list **head_b, int *to_be_pushed, t_vrls *my_variables);
+void range_big(a_list **head_a, a_list **head_b, int *to_be_pushed, t_vrls *my_variables);
+void calc_ranges(t_vrls *my_variables);
+void    sort_three(a_list **head);
+void    sort_and_indexing(a_list **head_a, a_list **head_b, int *array);
+void    pick_in_range(t_vrls *my_variables, a_list **head_a, a_list **head_b);
+void push_from_a_to_b(a_list **head_a, a_list * *head_b, int *array, t_vrls *my_variables);
 
 
 
