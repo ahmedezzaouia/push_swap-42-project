@@ -6,22 +6,18 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 19:53:51 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 04:18:43 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-
-
 
 void	ft_sort_int_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
 	int	swap;
-
+	
 	i = 0;
 	while (i < size)
 	{
@@ -39,7 +35,6 @@ void	ft_sort_int_tab(int *tab, int size)
 		i++;
 	}
 }
-
 
 void	print_instructions(char *instruct)
 {

@@ -6,16 +6,16 @@
 #    By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/13 18:51:32 by ahmez-za          #+#    #+#              #
-#    Updated: 2022/05/21 04:02:14 by ahmez-za         ###   ########.fr        #
+#    Updated: 2022/05/21 05:02:35 by ahmez-za         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = push_swap.c push_swap_helper.c parsing_input.c push_to_stack_b.c push_to_stack_b_helpers.c
+SRCS = push_swap.c push_swap_helper.c parsing_input.c push_to_stack_b.c push_to_stack_b_helpers.c push_to_stack_a.c push_swap_helper2.c sort_three_five.c 
 NAME = push_swap
 LIBFT = ./libft/libft.a
 # FTPRINTF = ./ft_printf/libftprintf.a
 CC = gcc 
-CFLAGS =
+# CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
