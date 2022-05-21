@@ -39,6 +39,11 @@ int get_list_max_index(a_list *head);
 int get_min_or_max_postion(a_list *head, int value, int is_index);
 void print_list(a_list *head, char stack);
 
+/**********************************************************************/
+void	sort_three__rotate_helper(a_list **head, a_list **s, a_list **t);
+void	sort_three_swap_helper2(a_list **head, a_list **second, a_list **third);
+void sort_three(a_list **head);
+void sort_five_numbers(a_list **head_a, a_list **head_b);
 
 /*********************************************************************/
 
@@ -66,8 +71,5 @@ void	do_that_when_max_not_head(a_list **a, a_list **b, int *memory);
 void	push_to_stack_a(a_list **a, a_list **b, int size);
 
 
-/**********************************************************************/
-void sort_three(a_list **head);
-void sort_five_numbers(a_list **head_a, a_list **head_b);
 
 #endif
