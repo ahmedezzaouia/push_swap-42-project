@@ -6,74 +6,97 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 04:18:43 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:35:24 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_int_tab(int *tab, int size)
+void	reverse_stack_a(a_list **head_stack_a, a_list **head_stack_b)
 {
-	int	i;
-	int	j;
-	int	swap;
-	
-	i = 0;
-	while (i < size)
+	a_list	*temp;
+	a_list	*temp2;
+
+	temp = *head_stack_a;
+	while (temp->next)
 	{
-		j = i + 1;
-		while (j < size)
+		temp2 = temp;
+		temp = temp->next;
+	}
+	lstadd_front(head_stack_a, temp);
+	temp2->next = NULL;
+}
+
+void	reverse_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+{
+	a_list	*last;
+	a_list	*temp;
+	a_list	*temp2;
+
+	last = NULL;
+	temp = NULL;
+	if (stack == 'a')
+		reverse_stack_a(head_stack_a, head_stack_b);
+	else if (stack == 'b' )
+	{
+		temp = *head_stack_b;
+		while (temp->next)
 		{
-			if (tab[j] < tab[i])
-			{
-				swap = tab[i];
-				tab[i] = tab[j];
-				tab[j] = swap;
-			}
-			j++;
+			temp2 = temp;
+			temp = temp->next;
 		}
-		i++;
+		lstadd_front(head_stack_b, temp);
+		temp2->next = NULL;
 	}
+	if (stack == 'a')
+		print_instructions("rra");
+	else if (stack == 'b')
+		print_instructions("rrb");
 }
 
-void	print_instructions(char *instruct)
+int	get_list_min(a_list *head)
 {
-	static char *e_intruct = 0;
+	int	min;
 
-	if (!e_intruct)
+	min = head->data;
+	while (head)
 	{
-		e_intruct = instruct;
+		if (head->data < min)
+			min = head->data;
+		head = head->next;
 	}
-	else if (!instruct)
-	{
-		printf("%s\n",e_intruct);
-	}
-	else if ((!ft_strncmp(e_intruct, "sb", 3) && !ft_strncmp(instruct, "sa", 3)) || \
-	 	(!ft_strncmp(e_intruct, "sa", 3) && !ft_strncmp(instruct, "sb", 3)))
-	{
-		printf("ss\n");
-		instruct = NULL;
-	}
-	else if ((!ft_strncmp(e_intruct, "ra", 3) && !ft_strncmp(instruct, "rb", 3)) || \
-	 	(!ft_strncmp(e_intruct, "rb", 3) && !ft_strncmp(instruct, "ra", 3)))
-	{
-		printf("rr\n");
-		instruct = NULL;
-
-	}
-	else if ((!ft_strncmp(e_intruct, "rra", 4) && !ft_strncmp(instruct, "rrb", 4)) || \
-	 	(!ft_strncmp(e_intruct, "rrb", 4) && !ft_strncmp(instruct, "rra", 4)))
-	{
-		printf("rrr\n");
-		instruct = NULL;
-
-	}
-	else if (instruct && e_intruct)
-	{
-		printf("%s\n",e_intruct);
-
-	}
-	e_intruct = instruct;
-
+	return (min);
 }
 
+int	get_list_max_index(a_list *head)
+{
+	int	max;
+
+	max = head->index;
+	if (get_list_size(head) == 1)
+		return (max);
+	while (head)
+	{
+		if (head->index > max)
+			max = head->index;
+		head = head->next;
+	}
+	return (max);
+}
+
+int	get_min_or_max_postion(a_list *head, int value, int is_index)
+{
+	int	postion;
+
+	postion = 1;
+	while (head)
+	{
+		if (head->index == value && is_index)
+			return (postion);
+		if (head->data == value && !is_index)
+			return (postion);
+		postion += 1;
+		head = head->next;
+	}
+	return (-1);
+}

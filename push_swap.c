@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 05:01:48 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 15:54:22 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -338,7 +338,7 @@ int main(int ac, char **argv)
     head_stack_a = NULL;
     head_stack_b = NULL;
 
-    array = parsing_Input(argv, ac, &head_stack_a);
+    array = parsing_input(argv, ac, &head_stack_a);
     if (ac == 4)
         sort_three(&head_stack_a);
     else if (ac == 6)

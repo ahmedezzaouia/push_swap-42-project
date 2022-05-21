@@ -48,8 +48,7 @@ int     position(a_list *a, int size, int min, int max);
 void    check_deplicate(a_list *head);
 void    add_node(int data, a_list **head);
 int     check_stack_sort(a_list *head_stack_a);
-int     *parsing_Input(char **argv, int ac, a_list **head_a);
-
+int	    *parsing_input(char **argv, int ac, a_list **head_a);
 /******************* Push from A to B ********************************/
 int     calculate_chunk(a_list *head_stack_a);
 void    range_small(a_list **head_a, a_list **head_b, int *to_be_pushed, t_vrls *my_variables);
