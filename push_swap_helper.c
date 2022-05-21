@@ -6,13 +6,13 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:20:38 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:17:01 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_stack_a(t_list_node **head_stack_a, t_list_node **head_stack_b)
+void	reverse_stack_a(t_list_node **head_stack_a)
 {
 	t_list_node	*temp;
 	t_list_node	*temp2;
@@ -37,7 +37,7 @@ void	reverse_stack(t_list_node **head_stack_a, \
 	last = NULL;
 	temp = NULL;
 	if (stack == 'a')
-		reverse_stack_a(head_stack_a, head_stack_b);
+		reverse_stack_a(head_stack_a);
 	else if (stack == 'b' )
 	{
 		temp = *head_stack_b;

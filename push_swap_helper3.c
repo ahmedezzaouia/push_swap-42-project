@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:16:02 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:20:13 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:17:29 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,7 @@ void	swap_stack(t_list_node **head, char stack)
 		print_instructions("sb");
 }
 
-void	rotat_stack_helper(t_list_node **head_stack_a, \
-		t_list_node **head_stack_b)
+void	rotat_stack_helper(t_list_node **head_stack_a)
 {
 	t_list_node	*temp;
 
@@ -89,7 +88,7 @@ void	rotat_stack(t_list_node **head_stack_a, \
 	t_list_node	*temp;
 
 	if (stack == 'a')
-		rotat_stack_helper(head_stack_a, head_stack_b);
+		rotat_stack_helper(head_stack_a);
 	if (stack == 'b')
 	{
 		if (get_list_size(*head_stack_b) <= 1)

@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:18:48 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:31:25 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int ac, char **argv)
 	t_list_node		*head_stack_b;
 	t_vrls			my_variables;
 
+	if(ac == 1)
+		exit(0);
 	head_stack_a = NULL;
 	head_stack_b = NULL;
 	array = parsing_input(argv, ac, &head_stack_a);

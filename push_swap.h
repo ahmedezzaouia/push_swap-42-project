@@ -6,18 +6,16 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:48:09 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:16:41 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:22:04 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "./libft/libft.h"
-// # include "./ft_printf/ft_printf.h"
-# include <stdio.h>
+# include "./ft_printf/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include <string.h>
 
 typedef struct Node {
 	int			data;
@@ -78,8 +76,7 @@ void	range_big(t_list_node **head_a, t_list_node **head_b,
 			int *to_be_pushed, t_vrls *my_variables);
 void	calc_ranges(t_vrls *my_variables);
 void	sort_three(t_list_node **head);
-void	sort_and_indexing(t_list_node **head_a,
-			t_list_node **head_b, int *array);
+void	sort_and_indexing(t_list_node **head_a, int *array);
 void	pick_in_range(t_vrls *my_variables,
 			t_list_node **head_a, t_list_node **head_b);
 void	push_from_a_to_b(t_list_node **head_a,

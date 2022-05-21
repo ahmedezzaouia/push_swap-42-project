@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:23:25 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:21:48 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_sort_int_tab(int *tab, int size)
 
 void	print_instructions_helper(char **instruct, char *to_print)
 {
-	printf("%s\n", to_print);
+	ft_printf("%s\n", to_print);
 	*instruct = NULL;
 }
 
@@ -49,7 +49,7 @@ void	print_instructions(char *instruct)
 	if (!e_intruct)
 		e_intruct = instruct;
 	else if (!instruct)
-		printf("%s\n", e_intruct);
+		ft_printf("%s\n", e_intruct);
 	else if ((!ft_strncmp(e_intruct, "sb", 3) && \
 	!ft_strncmp(instruct, "sa", 3)) || \
 	(!ft_strncmp(e_intruct, "sa", 3) && !ft_strncmp(instruct, "sb", 3)))
@@ -63,7 +63,7 @@ void	print_instructions(char *instruct)
 	(!ft_strncmp(e_intruct, "rrb", 4) && !ft_strncmp(instruct, "rra", 4)))
 		print_instructions_helper(&instruct, "rrr");
 	else if (instruct && e_intruct)
-		printf("%s\n", e_intruct);
+		ft_printf("%s\n", e_intruct);
 	e_intruct = instruct;
 }
 
@@ -93,7 +93,7 @@ void	lstadd_front(t_list_node **head, t_list_node *new)
 // {
 // 	while (head)
 // 	{
-// 		printf("stack %c = %d index == %d\n", stack, head->data, head->index);
+// 		ft_printf("stack %c = %d index == %d\n", stack, head->data, head->index);
 // 		head = head->next;
 // 	}
 // }

@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:50:17 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:21:43 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 22:18:02 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	indexing_stack(t_list_node **head_stack_a, int *array)
 	}
 }
 
-void	sort_and_indexing(t_list_node **head_a, \
-		t_list_node **head_b, int *array)
+void	sort_and_indexing(t_list_node **head_a, int *array)
 {
 	ft_sort_int_tab(array, get_list_size(*head_a));
 	indexing_stack(head_a, array);
@@ -66,7 +65,7 @@ void	push_from_a_to_b(t_list_node **head_a, t_list_node **head_b, \
 int *array, t_vrls *my_variables)
 {
 	my_variables->chunk = calculate_chunk(*head_a);
-	sort_and_indexing(head_a, head_b, array);
+	sort_and_indexing(head_a, array);
 	my_variables->size = get_list_size(*head_a);
 	my_variables->range_max = (my_variables->size - 1) / 2;
 	my_variables->range_min = (my_variables->size - 1) / 2;
