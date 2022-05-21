@@ -6,16 +6,16 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 14:35:24 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_stack_a(a_list **head_stack_a, a_list **head_stack_b)
+void	reverse_stack_a(t_list_node **head_stack_a, t_list_node **head_stack_b)
 {
-	a_list	*temp;
-	a_list	*temp2;
+	t_list_node	*temp;
+	t_list_node	*temp2;
 
 	temp = *head_stack_a;
 	while (temp->next)
@@ -27,11 +27,11 @@ void	reverse_stack_a(a_list **head_stack_a, a_list **head_stack_b)
 	temp2->next = NULL;
 }
 
-void	reverse_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+void	reverse_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
 {
-	a_list	*last;
-	a_list	*temp;
-	a_list	*temp2;
+	t_list_node	*last;
+	t_list_node	*temp;
+	t_list_node	*temp2;
 
 	last = NULL;
 	temp = NULL;
@@ -54,7 +54,7 @@ void	reverse_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 		print_instructions("rrb");
 }
 
-int	get_list_min(a_list *head)
+int	get_list_min(t_list_node *head)
 {
 	int	min;
 
@@ -68,7 +68,7 @@ int	get_list_min(a_list *head)
 	return (min);
 }
 
-int	get_list_max_index(a_list *head)
+int	get_list_max_index(t_list_node *head)
 {
 	int	max;
 
@@ -84,7 +84,7 @@ int	get_list_max_index(a_list *head)
 	return (max);
 }
 
-int	get_min_or_max_postion(a_list *head, int value, int is_index)
+int	get_min_or_max_postion(t_list_node *head, int value, int is_index)
 {
 	int	postion;
 

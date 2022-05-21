@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 20:42:58 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int ac, char **argv)
 {
 	int		*array;
 	int		size;
-	a_list	*head_stack_a;
-	a_list	*head_stack_b;
+	t_list_node	*head_stack_a;
+	t_list_node	*head_stack_b;
 	t_vrls	my_variables;
 
 	head_stack_a = NULL;

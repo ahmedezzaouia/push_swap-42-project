@@ -6,13 +6,13 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 03:31:28 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 18:32:12 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	calculate_chunk(a_list *head_stack_a)
+int	calculate_chunk(t_list_node *head_stack_a)
 {
 	if (get_list_size(head_stack_a) <= 10)
 		return (2);
@@ -22,7 +22,7 @@ int	calculate_chunk(a_list *head_stack_a)
 		return (30);
 }
 
-void	range_small(a_list **head_stack_a, a_list **head_stack_b, \
+void	range_small(t_list_node **head_stack_a, t_list_node **head_stack_b, \
 int *to_be_pushed, t_vrls *my_variables)
 {
 	push_stack(head_stack_a, head_stack_b, 'b');
@@ -32,7 +32,7 @@ int *to_be_pushed, t_vrls *my_variables)
 	(my_variables->s)--;
 }
 
-void	range_big(a_list **head_stack_a, a_list **head_stack_b, \
+void	range_big(t_list_node **head_stack_a, t_list_node **head_stack_b, \
 int *to_be_pushed, t_vrls *my_variables)
 {
 	push_stack(head_stack_a, head_stack_b, 'b');

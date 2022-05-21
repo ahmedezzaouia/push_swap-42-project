@@ -6,15 +6,15 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:16:02 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 15:45:15 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_stack_helper(a_list **head_a, a_list **head_b, a_list	*new)
+void	push_stack_helper(t_list_node **head_a, t_list_node **head_b, t_list_node	*new)
 {
-	a_list	*temp;
+	t_list_node	*temp;
 
 	temp = *head_b;
 	new->data = (*head_b)->data;
@@ -26,12 +26,12 @@ void	push_stack_helper(a_list **head_a, a_list **head_b, a_list	*new)
 	print_instructions("pa");
 }
 
-void	push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+void	push_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
 {
-	a_list	*new;
-	a_list	*temp;
+	t_list_node	*new;
+	t_list_node	*temp;
 
-	new = malloc(sizeof(a_list));
+	new = malloc(sizeof(t_list_node));
 	if (!new)
 		return ;
 	if (stack == 'a')
@@ -49,10 +49,10 @@ void	push_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
 	}
 }
 
-void	swap_stack(a_list **head, char stack)
+void	swap_stack(t_list_node **head, char stack)
 {
-	a_list	*first;
-	a_list	*second;
+	t_list_node	*first;
+	t_list_node	*second;
 
 	first = *head;
 	second = first->next;
@@ -65,9 +65,9 @@ void	swap_stack(a_list **head, char stack)
 		print_instructions("sb");
 }
 
-void	rotat_stack_helper(a_list **head_stack_a, a_list **head_stack_b)
+void	rotat_stack_helper(t_list_node **head_stack_a, t_list_node **head_stack_b)
 {
-	a_list	*temp;
+	t_list_node	*temp;
 
 	if (get_list_size(*head_stack_a) <= 1)
 		return ;
@@ -80,9 +80,9 @@ void	rotat_stack_helper(a_list **head_stack_a, a_list **head_stack_b)
 	print_instructions("ra");
 }
 
-void	rotat_stack(a_list **head_stack_a, a_list **head_stack_b, char stack)
+void	rotat_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
 {
-	a_list	*temp;
+	t_list_node	*temp;
 
 	if (stack == 'a')
 		rotat_stack_helper(head_stack_a, head_stack_b);

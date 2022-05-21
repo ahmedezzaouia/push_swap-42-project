@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:23:25 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 17:50:45 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_instructions(char *instruct)
 	e_intruct = instruct;
 }
 
-int	get_list_size(a_list *head)
+int	get_list_size(t_list_node *head)
 {
 	int	size;
 
@@ -80,7 +80,7 @@ int	get_list_size(a_list *head)
 	return (size);
 }
 
-void	lstadd_front(a_list **head, a_list *new)
+void	lstadd_front(t_list_node **head, t_list_node *new)
 {
 	if (new)
 	{
@@ -89,11 +89,11 @@ void	lstadd_front(a_list **head, a_list *new)
 	}
 }
 
-void	print_list(a_list *head, char stack)
-{
-	while (head)
-	{
-		printf("stack %c = %d index == %d\n", stack, head->data, head->index);
-		head = head->next;
-	}
-}
+// void	print_list(t_list_node *head, char stack)
+// {
+// 	while (head)
+// 	{
+// 		printf("stack %c = %d index == %d\n", stack, head->data, head->index);
+// 		head = head->next;
+// 	}
+// }

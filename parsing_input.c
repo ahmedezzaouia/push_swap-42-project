@@ -6,13 +6,13 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:54:51 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 15:53:36 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_stack_sort(a_list *head_stack_a)
+int	check_stack_sort(t_list_node *head_stack_a)
 {
 	while (head_stack_a->next)
 	{
@@ -25,9 +25,9 @@ int	check_stack_sort(a_list *head_stack_a)
 	return (1);
 }
 
-void	check_deplicate(a_list *head)
+void	check_deplicate(t_list_node *head)
 {
-	a_list	*temp;
+	t_list_node	*temp;
 
 	while (head)
 	{
@@ -45,14 +45,14 @@ void	check_deplicate(a_list *head)
 	}
 }
 
-void	add_node(int data, a_list **head)
+void	add_node(int data, t_list_node **head)
 {
 	int		i;
-	a_list	*new;
-	a_list	*temp;
+	t_list_node	*new;
+	t_list_node	*temp;
 
 	i = 0;
-	new = malloc(sizeof(a_list));
+	new = malloc(sizeof(t_list_node));
 	if (!new)
 		return ;
 	new->data = data;
@@ -70,7 +70,7 @@ void	add_node(int data, a_list **head)
 	}
 }
 
-int	*parsing_input(char **argv, int ac, a_list **head_a)
+int	*parsing_input(char **argv, int ac, t_list_node **head_a)
 {
 	int	i;
 	int	j;

@@ -6,16 +6,16 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:50:17 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 18:22:06 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexing_stack(a_list **head_stack_a, int *array)
+void	indexing_stack(t_list_node **head_stack_a, int *array)
 {
 	int		i;
-	a_list	*temp;
+	t_list_node	*temp;
 
 	i = 0;
 	while (i < get_list_size(*head_stack_a))
@@ -34,15 +34,15 @@ void	indexing_stack(a_list **head_stack_a, int *array)
 	}
 }
 
-void	sort_and_indexing(a_list **head_a, a_list **head_b, int *array)
+void	sort_and_indexing(t_list_node **head_a, t_list_node **head_b, int *array)
 {
 	ft_sort_int_tab(array, get_list_size(*head_a));
 	indexing_stack(head_a, array);
 }
 
-void	pick_in_range(t_vrls *my_variables, a_list **head_a, a_list **head_b)
+void	pick_in_range(t_vrls *my_variables, t_list_node **head_a, t_list_node **head_b)
 {
-	a_list	*temp;
+	t_list_node	*temp;
 	int		to_be_pushed;
 
 	// if (my_variables->range_max == (my_variables->size - 4))
@@ -62,7 +62,7 @@ void	pick_in_range(t_vrls *my_variables, a_list **head_a, a_list **head_b)
 	}
 }
 
-void	push_from_a_to_b(a_list **head_a, a_list **head_b, \
+void	push_from_a_to_b(t_list_node **head_a, t_list_node **head_b, \
 int *array, t_vrls *my_variables)
 {
 	my_variables->chunk = calculate_chunk(*head_a);

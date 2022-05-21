@@ -6,31 +6,30 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:59:37 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 20:36:21 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three__rotate_helper(a_list **head, a_list **s, a_list **t)
+void	sort_three__rotate_helper(t_list_node **head, t_list_node **s, t_list_node **t)
 {
 	rotat_stack(head, NULL, 'a');
 	*s = (*head)->next;
 	*t = (*s)->next;
 }
 
-void	sort_three_swap_helper2(a_list **head, a_list **second, a_list **third)
+void	sort_three_swap_helper2(t_list_node **head, t_list_node **second, t_list_node **third)
 {
 	swap_stack(head, 'a');
 	*second = (*head)->next;
 	*third = (*second)->next;
 }
 
-
-void	sort_three(a_list **head)
+void	sort_three(t_list_node **head)
 {
-	a_list	*second;
-	a_list	*third;
+	t_list_node	*second;
+	t_list_node	*third;
 
 	second = (*head)->next;
 	third = second->next;
@@ -52,57 +51,3 @@ void	sort_three(a_list **head)
 	}
 	print_instructions(NULL);
 }
-
-// void	sort_five_numbers_helper_while(a_list **head_a, int *size, int *p)
-// {
-// 	int	min;
-
-// 	min = *size - *p + 1;
-// 	while (min != 0)
-// 	{
-// 		reverse_stack(head_a, NULL, 'a');
-// 		min--;
-// 	}
-// }
-
-// void	sort_five_numbers_helper(a_list **head_a, a_list **head_b)
-// {
-// 	int	i;
-// 	int	size;
-// 	int	min;
-// 	int	position;
-
-// 	while (i < 2)
-// 	{
-// 		size = get_list_size(*head_a);
-// 		min = get_list_min(*head_a);
-// 		position = get_min_or_max_postion(*head_a, min, 0);
-// 		if ((*head_a)->data == min)
-// 		{
-// 			push_stack(head_a, head_b, 'b');
-// 			i++;
-// 			continue ;
-// 		}
-// 		if (position > (size / 2))
-// 			sort_five_numbers_helper_while(head_a, &size, &position);
-// 		else
-// 			rotat_stack(head_a, NULL, 'a');
-// 		push_stack(head_a, head_b, 'b');
-// 		i++;
-// 	}
-// }
-
-// void	sort_five_numbers(a_list **head_a, a_list **head_b)
-// {
-// 	int	i;
-// 	int	size;
-// 	int	min;
-// 	int	position;
-
-// 	i = 0;
-// 	sort_five_numbers_helper(head_a, head_b);
-// 	sort_three(head_a);
-// 	push_stack(head_a, head_b, 'a');
-// 	push_stack(head_a, head_b, 'a');
-// 	print_instructions(NULL);
-// }
