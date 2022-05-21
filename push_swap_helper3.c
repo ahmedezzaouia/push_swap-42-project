@@ -6,13 +6,14 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:16:02 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:20:13 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_stack_helper(t_list_node **head_a, t_list_node **head_b, t_list_node	*new)
+void	push_stack_helper(t_list_node **head_a, t_list_node **head_b, \
+		t_list_node	*new)
 {
 	t_list_node	*temp;
 
@@ -26,7 +27,8 @@ void	push_stack_helper(t_list_node **head_a, t_list_node **head_b, t_list_node	*
 	print_instructions("pa");
 }
 
-void	push_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
+void	push_stack(t_list_node **head_stack_a, \
+		t_list_node **head_stack_b, char stack)
 {
 	t_list_node	*new;
 	t_list_node	*temp;
@@ -65,7 +67,8 @@ void	swap_stack(t_list_node **head, char stack)
 		print_instructions("sb");
 }
 
-void	rotat_stack_helper(t_list_node **head_stack_a, t_list_node **head_stack_b)
+void	rotat_stack_helper(t_list_node **head_stack_a, \
+		t_list_node **head_stack_b)
 {
 	t_list_node	*temp;
 
@@ -80,7 +83,8 @@ void	rotat_stack_helper(t_list_node **head_stack_a, t_list_node **head_stack_b)
 	print_instructions("ra");
 }
 
-void	rotat_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
+void	rotat_stack(t_list_node **head_stack_a, \
+		t_list_node **head_stack_b, char stack)
 {
 	t_list_node	*temp;
 

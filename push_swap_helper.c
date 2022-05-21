@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:20:38 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	reverse_stack_a(t_list_node **head_stack_a, t_list_node **head_stack_b)
 	temp2->next = NULL;
 }
 
-void	reverse_stack(t_list_node **head_stack_a, t_list_node **head_stack_b, char stack)
+void	reverse_stack(t_list_node **head_stack_a, \
+		t_list_node **head_stack_b, char stack)
 {
 	t_list_node	*last;
 	t_list_node	*temp;

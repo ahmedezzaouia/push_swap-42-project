@@ -6,20 +6,22 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:59:37 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:22:21 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three__rotate_helper(t_list_node **head, t_list_node **s, t_list_node **t)
+void	sort_three__rotate_helper(t_list_node **head, \
+		t_list_node **s, t_list_node **t)
 {
 	rotat_stack(head, NULL, 'a');
 	*s = (*head)->next;
 	*t = (*s)->next;
 }
 
-void	sort_three_swap_helper2(t_list_node **head, t_list_node **second, t_list_node **third)
+void	sort_three_swap_helper2(t_list_node **head, \
+		t_list_node **second, t_list_node **third)
 {
 	swap_stack(head, 'a');
 	*second = (*head)->next;

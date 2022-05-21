@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:05:39 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:22:41 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,4 @@ void	push_to_stack_a(t_list_node **a, t_list_node **b, int size)
 		i++;
 		memory--;
 	}
-    // print_list(*a, 'A');
-	// printf("\n\n\n\n\n\n");
 }

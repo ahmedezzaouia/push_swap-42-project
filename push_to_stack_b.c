@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:50:17 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:14:17 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 21:21:43 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	indexing_stack(t_list_node **head_stack_a, int *array)
 {
-	int		i;
+	int			i;
 	t_list_node	*temp;
 
 	i = 0;
@@ -34,19 +34,19 @@ void	indexing_stack(t_list_node **head_stack_a, int *array)
 	}
 }
 
-void	sort_and_indexing(t_list_node **head_a, t_list_node **head_b, int *array)
+void	sort_and_indexing(t_list_node **head_a, \
+		t_list_node **head_b, int *array)
 {
 	ft_sort_int_tab(array, get_list_size(*head_a));
 	indexing_stack(head_a, array);
 }
 
-void	pick_in_range(t_vrls *my_variables, t_list_node **head_a, t_list_node **head_b)
+void	pick_in_range(t_vrls *my_variables, \
+		t_list_node **head_a, t_list_node **head_b)
 {
+	int			to_be_pushed;
 	t_list_node	*temp;
-	int		to_be_pushed;
 
-	// if (my_variables->range_max == (my_variables->size - 4))
-    //             to_be_pushed = my_variables->s;
 	to_be_pushed = 2 * my_variables->chunk;
 	while (to_be_pushed && my_variables->s > 3)
 	{
@@ -71,8 +71,6 @@ int *array, t_vrls *my_variables)
 	my_variables->range_max = (my_variables->size - 1) / 2;
 	my_variables->range_min = (my_variables->size - 1) / 2;
 	my_variables->s = my_variables->size;
-
-	
 	while (my_variables->s > 3)
 	{
 		calc_ranges(my_variables);
