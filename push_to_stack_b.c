@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_from_A_to_B.c                                 :+:      :+:    :+:   */
+/*   push_to_stack_b.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:50:17 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 03:32:10 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:22:06 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	pick_in_range(t_vrls *my_variables, a_list **head_a, a_list **head_b)
 	a_list	*temp;
 	int		to_be_pushed;
 
+	// if (my_variables->range_max == (my_variables->size - 4))
+    //             to_be_pushed = my_variables->s;
 	to_be_pushed = 2 * my_variables->chunk;
 	while (to_be_pushed && my_variables->s > 3)
 	{
@@ -66,15 +68,15 @@ int *array, t_vrls *my_variables)
 	my_variables->chunk = calculate_chunk(*head_a);
 	sort_and_indexing(head_a, head_b, array);
 	my_variables->size = get_list_size(*head_a);
-	my_variables->range_max = (my_variables->size - 1) / 2 \
-	+ my_variables->chunk;
-	my_variables->range_min = (my_variables->size - 1) / 2 \
-	- my_variables->chunk;
+	my_variables->range_max = (my_variables->size - 1) / 2;
+	my_variables->range_min = (my_variables->size - 1) / 2;
 	my_variables->s = my_variables->size;
+
+	
 	while (my_variables->s > 3)
 	{
-		pick_in_range(my_variables, head_a, head_b);
 		calc_ranges(my_variables);
+		pick_in_range(my_variables, head_a, head_b);
 	}
 	sort_three(head_a);
 	print_instructions(NULL);

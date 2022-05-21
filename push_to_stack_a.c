@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:05:39 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 04:11:11 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/21 17:56:48 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,12 @@ void	push_to_stack_a(a_list **a, a_list **b, int size)
 		else
 			do_that_when_max_not_head(a, b, &memory);
 	}
-	else
+	else if (memory)
 	{
 		reverse_stack(a, b, 'a');
 		i++;
 		memory--;
 	}
+    // print_list(*a, 'A');
+	// printf("\n\n\n\n\n\n");
 }
