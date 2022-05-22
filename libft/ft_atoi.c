@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:06:18 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 14:25:07 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:09:37 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,21 @@ void	print_error(void)
 	exit(1);
 }
 
+void	check_char_is_exist(const char *str, int k)
+{
+	while (str[k])
+	{
+		if (str[k] < '0' || str[k] > '9')
+			print_error();
+		k++;
+	}
+}
+
 int	ft_atoi(const char *str)
 {
 	int		i;
 	long	nb;
 	int		sign;
-	int		k;
 
 	i = 0;
 	sign = 1;
@@ -36,13 +45,7 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		i++;
 	}
-	k = i;
-	while (str[k])
-	{
-		if (str[k] < '0' || str[k] > '9')
-			print_error();
-		k++;
-	}
+	check_char_is_exist(str, i);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - 48);

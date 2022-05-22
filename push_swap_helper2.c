@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:23:25 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 22:21:48 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:29:24 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,3 @@ void	lstadd_front(t_list_node **head, t_list_node *new)
 		*head = new;
 	}
 }
-
-// void	print_list(t_list_node *head, char stack)
-// {
-// 	while (head)
-// 	{
-// 		ft_printf("stack %c = %d index == %d\n", stack, head->data, head->index);
-// 		head = head->next;
-// 	}
-// }

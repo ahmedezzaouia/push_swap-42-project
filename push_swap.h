@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:48:09 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 21:21:22 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:30:07 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		get_min_or_max_postion(t_list_node *head, int value, int is_index);
 void	print_list(t_list_node *head, char stack);
 
 /**********************************************************************/
-void	print_list(t_list_node *head, char stack);
 void	sort_three__rotate_helper(t_list_node **head,
 			t_list_node **s, t_list_node **t);
 void	sort_three_swap_helper2(t_list_node **head,

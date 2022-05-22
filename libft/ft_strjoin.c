@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:21:27 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 16:45:54 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:37:03 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	ft_strcat(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return ;
-
 	i = 0;
 	len = ft_strlen(s1);
 	while (s2[i])
