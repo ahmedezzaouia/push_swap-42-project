@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:21:27 by ahmez-za          #+#    #+#             */
-/*   Updated: 2021/11/19 14:26:14 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 02:20:05 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (NULL);
 	s1_len = ft_strlen((char *)s1);
 	s2_len = ft_strlen((char *)s2);
-	str = ft_calloc((s1_len + s2_len + 1), sizeof(char));
+	str = ft_calloc((s1_len + s2_len + 2), sizeof(char));
 	if (!str)
 		return (0);
 	ft_strcat(str, (char *)s1);
+	ft_strcat(str, (char *)" ");
 	ft_strcat(str, (char *)s2);
 	return (str);
 }
