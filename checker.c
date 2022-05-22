@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:31:36 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 21:34:41 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:19:00 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int ac, char **argv)
 		free(line);
 		line = get_next_line(0);
 	}
-	if (check_stack_sort(stack_a) == 1)
+	if (check_stack_sort(stack_a) == 1 && !stack_b)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

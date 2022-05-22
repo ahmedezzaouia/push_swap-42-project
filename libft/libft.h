@@ -6,14 +6,13 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:52:26 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/20 20:50:34 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:23:26 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include<stdio.h>
 # include<stdlib.h>
 # include<unistd.h>
 # include<fcntl.h>
