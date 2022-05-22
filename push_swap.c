@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:10:48 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 02:27:19 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:20:49 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **argv)
 	t_list_node		*head_stack_b;
 	t_vrls			my_variables;
 
-	if(ac == 1)
+	if (ac == 1)
 		exit(0);
 	head_stack_a = NULL;
 	head_stack_b = NULL;
@@ -39,8 +39,7 @@ int	main(int ac, char **argv)
 		while (head_stack_b)
 			push_to_stack_a(&head_stack_a, &head_stack_b, size);
 		while (!check_stack_sort(head_stack_a))
-			reverse_stack(&head_stack_a, &head_stack_b, 'a');
+			reverse_stack(&head_stack_a, 'a');
 	}
 	print_instructions(NULL);
-	
 }

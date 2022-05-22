@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 04:05:39 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 21:22:41 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 19:04:56 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ void	do_that_when_max_not_head(t_list_node **a, t_list_node **b, int *memory)
 
 	if (*memory == 0 || (*b)->index > get_last_index(*a))
 	{
-		push_stack(a, b, 'a');
-		rotat_stack(a, b, 'a');
+		push_stack(b, a, 'a');
+		rotat_stack(a, 'a');
 		(*memory)++;
 	}
 	else
 	{
 		pos = get_min_or_max_postion(*b, get_list_max_index(*b), 1);
 		if (pos < get_list_size(*b) / 2)
-			rotat_stack(a, b, 'b');
+			rotat_stack(b, 'b');
 		else
-			reverse_stack(a, b, 'b');
+			reverse_stack(b, 'b');
 	}
 }
 
@@ -59,7 +59,7 @@ void	push_to_stack_a(t_list_node **a, t_list_node **b, int size)
 	{
 		if ((*b)->index == size - i)
 		{
-			push_stack(a, b, 'a');
+			push_stack(b, a, 'a');
 			i++;
 		}
 		else
@@ -67,7 +67,7 @@ void	push_to_stack_a(t_list_node **a, t_list_node **b, int size)
 	}
 	else if (memory)
 	{
-		reverse_stack(a, b, 'a');
+		reverse_stack(a, 'a');
 		i++;
 		memory--;
 	}

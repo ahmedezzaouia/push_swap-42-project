@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:48:09 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 22:22:04 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:21:22 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "./ft_printf/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
+
+# define BUFFER_SIZE 4
 
 typedef struct Node {
 	int			data;
@@ -33,17 +35,16 @@ typedef struct s_help {
 
 }	t_vrls;
 
+void	print_error(void);
 /*********************************************************************/
 int		get_list_size(t_list_node *head);
 void	lstadd_front(t_list_node **head, t_list_node *new);
-void	push_stack(t_list_node **head_stack_a,
-			t_list_node **head_stack_b, char stack);
+void	push_stack(t_list_node **head_stack_1,
+			t_list_node **head_stack_2, char stack);
 void	swap_stack(t_list_node **head, char stack);
-void	rotat_stack(t_list_node **head_stack_a,
-			t_list_node **head_stack_b, char stack);
+void	rotat_stack(t_list_node **head_stack, char stack);
 void	lstadd_back(t_list_node **head, t_list_node *new);
-void	reverse_stack(t_list_node **head_stack_a,
-			t_list_node **head_stack_b, char stack);
+void	reverse_stack(t_list_node **head_stack, char stack);
 int		get_list_min(t_list_node *head);
 int		get_list_max_index(t_list_node *head);
 int		get_min_or_max_postion(t_list_node *head, int value, int is_index);
@@ -88,5 +89,9 @@ int		get_last_index(t_list_node *head);
 void	do_that_when_max_not_head(t_list_node **a,
 			t_list_node **b, int *memory);
 void	push_to_stack_a(t_list_node **a, t_list_node **b, int size);
+
+int		ft_is_new_line(char *save);
+char	*ft_get_line(char *save);
+char	*get_next_line(int fd);
 
 #endif

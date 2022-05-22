@@ -6,49 +6,42 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 22:17:01 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:17:06 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_stack_a(t_list_node **head_stack_a)
+int	check_stack_sort(t_list_node *head_stack_a)
 {
-	t_list_node	*temp;
-	t_list_node	*temp2;
-
-	temp = *head_stack_a;
-	while (temp->next)
+	while (head_stack_a->next)
 	{
-		temp2 = temp;
-		temp = temp->next;
+		if (head_stack_a->data > (head_stack_a->next)->data)
+		{
+			return (0);
+		}
+		head_stack_a = head_stack_a->next;
 	}
-	lstadd_front(head_stack_a, temp);
-	temp2->next = NULL;
+	return (1);
 }
 
-void	reverse_stack(t_list_node **head_stack_a, \
-		t_list_node **head_stack_b, char stack)
+void	reverse_stack(t_list_node **head_stack, char stack)
 {
 	t_list_node	*last;
 	t_list_node	*temp;
 	t_list_node	*temp2;
 
 	last = NULL;
-	temp = NULL;
-	if (stack == 'a')
-		reverse_stack_a(head_stack_a);
-	else if (stack == 'b' )
+	temp = *head_stack;
+	if (get_list_size(*head_stack) <= 1)
+		return ;
+	while (temp->next)
 	{
-		temp = *head_stack_b;
-		while (temp->next)
-		{
-			temp2 = temp;
-			temp = temp->next;
-		}
-		lstadd_front(head_stack_b, temp);
-		temp2->next = NULL;
+		temp2 = temp;
+		temp = temp->next;
 	}
+	lstadd_front(head_stack, temp);
+	temp2->next = NULL;
 	if (stack == 'a')
 		print_instructions("rra");
 	else if (stack == 'b')

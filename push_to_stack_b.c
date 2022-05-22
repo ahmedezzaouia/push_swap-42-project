@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 19:50:17 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/21 22:18:02 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:53:33 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	pick_in_range(t_vrls *my_variables, \
 		temp->index <= my_variables->range_max)
 			range_big(head_a, head_b, &to_be_pushed, my_variables);
 		else
-			rotat_stack(head_a, head_b, 'a');
+			rotat_stack(head_a, 'a');
 	}
 }
 
