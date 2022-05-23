@@ -6,7 +6,7 @@
 /*   By: ahmez-za <ahmez-za@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 12:22:00 by ahmez-za          #+#    #+#             */
-/*   Updated: 2022/05/22 21:17:06 by ahmez-za         ###   ########.fr       */
+/*   Updated: 2022/05/23 13:25:50 by ahmez-za         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_stack_sort(t_list_node *head_stack_a)
 {
+	if (!head_stack_a)
+		return (0);
 	while (head_stack_a->next)
 	{
 		if (head_stack_a->data > (head_stack_a->next)->data)
